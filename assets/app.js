@@ -1,8 +1,44 @@
 /* Minimal JS: carga datos y renderiza agenda, resultados, goleadores y tabla */
+const pathSegments = window.location.pathname.split('/');
+const BASE_PATH = pathSegments.length > 2 ? '/' + pathSegments[1] : '';
+const urlParams = new URLSearchParams(window.location.search);
+const champParam = urlParams.get('champ') || urlParams.get('c');
+if (champParam) localStorage.setItem('champ', champParam);
+const CHAMP = localStorage.getItem('champ') || 'campeonato-die';
+
+
 const YEAR_ELs = document.querySelectorAll('#year');
 YEAR_ELs.forEach(el => el.textContent = new Date().getFullYear());
 
-async function loadJSON(path){ const res = await fetch(path); return await res.json(); }
+asyasync function loadJSON(path) {
+  const file = path.split('/').pop();
+  const champPath = `${BASE_PATH}/data/${CHAMP}/${file}`;
+  try {
+    let res = await fetch(champPath);
+    if (res.ok) {
+      return await res.json();
+    }
+  } catch (err) {
+    // ignore and fallback
+  }
+  async function loadJSON(path) {
+  const file = path.split('/').pop();
+  const champPath = `${BASE_PATH}/data/${CHAMP}/${file}`;
+  try {
+    let res = await fetch(champPath);
+    if (res.ok) {
+      return await res.json();
+    }
+  } catch (err) {
+    // ignore and fallback
+  }
+  const fallbackPath = `${BASE_PATH}/data/${file}`;
+  const res2 = await fetch(fallbackPath);
+  return await res2.json();
+}
+
+
+
 
 function computeStandings(teams, matches){
   // Tabla clásica 3/1/0
