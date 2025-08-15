@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Inicio · Liga Amateur</title>
+  <meta name="description" content="Resultados, tabla y estadísticas de la Liga Amateur." />
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" href="/uploads/icon-192.png">
+  <link rel="apple-touch-icon" href="/uploads/icon-192.png">
+  <link rel="preload" href="/assets/styles.css" as="style">
+  <link rel="stylesheet" href="/assets/styles.css">
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => navigator.serviceWorker.register('/sw.js'));
+    }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <h1>🏆 Liga Amateur</h1>
+    <nav>
+      <a href="/">Inicio</a>
+      <a href="/tabla.html">Tabla</a>
+      <a href="/fotos.html">Fotos</a>
+      <a href="/admin/">Admin</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section>
+      <h2>Próximos partidos</h2>
+      <div id="proximos" class="cards"></div>
+    </section>
+
+    <section>
+      <h2>Últimos resultados</h2>
+      <div id="resultados" class="cards"></div>
+    </section>
+
+    <section>
+      <h2>Top goleadores</h2>
+      <ol id="goleadores"></ol>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <small>© <span id="year"></span> Liga Amateur. Optimizado para móviles.</small>
+  </footer>
+
+  <script src="/assets/app.js" defer></script>
+</body>
+</html>
