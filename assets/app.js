@@ -10,22 +10,12 @@ const CHAMP = localStorage.getItem('champ') || 'campeonato-die';
 const YEAR_ELs = document.querySelectorAll('#year');
 YEAR_ELs.forEach(el => el.textContent = new Date().getFullYear());
 
-asyasync function loadJSON(path) {
+
+async function loadJSON(path) {
   const file = path.split('/').pop();
   const champPath = `${BASE_PATH}/data/${CHAMP}/${file}`;
   try {
-    let res = await fetch(champPath);
-    if (res.ok) {
-      return await res.json();
-    }
-  } catch (err) {
-    // ignore and fallback
-  }
-  async function loadJSON(path) {
-  const file = path.split('/').pop();
-  const champPath = `${BASE_PATH}/data/${CHAMP}/${file}`;
-  try {
-    let res = await fetch(champPath);
+    const res = await fetch(champPath);
     if (res.ok) {
       return await res.json();
     }
@@ -36,6 +26,7 @@ asyasync function loadJSON(path) {
   const res2 = await fetch(fallbackPath);
   return await res2.json();
 }
+
 
 
 
