@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Telecometa FC",
+    "slug": "telecometa-fc",
+    "crest_url": "/uploads/crest1.png"
+  },
+  {
+    "id": 2,
+    "name": "Exiliados United",
+    "slug": "exiliados-united",
+    "crest_url": "/uploads/crest2.png"
+  },
+  {
+    "id": 3,
+    "name": "Universitario",
+    "slug": "universitario",
+    "crest_url": "/uploads/crest3.png"
+  },
+  {
+    "id": 4,
+    "name": "Atlético Norte",
+    "slug": "atletico-norte",
+    "crest_url": "/uploads/crest4.png"
+  }
+]

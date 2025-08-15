@@ -1,0 +1,30 @@
+[
+  {
+    "id": 101,
+    "team_id": 1,
+    "name": "Carlos Silva",
+    "position": "FW",
+    "number": 9
+  },
+  {
+    "id": 102,
+    "team_id": 2,
+    "name": "Juan Pérez",
+    "position": "FW",
+    "number": 11
+  },
+  {
+    "id": 103,
+    "team_id": 3,
+    "name": "Matías Rojas",
+    "position": "MF",
+    "number": 8
+  },
+  {
+    "id": 104,
+    "team_id": 4,
+    "name": "Diego Soto",
+    "position": "FW",
+    "number": 10
+  }
+]

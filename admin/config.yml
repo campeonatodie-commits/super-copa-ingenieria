@@ -1,0 +1,100 @@
+# Decap CMS configuration
+# IMPORTANT AUTH NOTE:
+# - The simplest login flow is deploying this repo on Netlify (free) and enabling Identity + Git Gateway.
+# - If you MUST stay on GitHub Pages, change the backend to 'github' and set up a GitHub OAuth server.
+#   Docs: https://decapcms.org/docs/backends-overview/#github-backend
+backend:
+  name: git-gateway   # works on Netlify with Identity
+  branch: main
+
+locale: "es"
+media_folder: "uploads"
+public_folder: "/uploads"
+publish_mode: simple
+
+site_url: "/"
+display_url: "/"
+
+collections:
+  - name: "equipos"
+    label: "Equipos"
+    folder: "data/equipos"
+    create: true
+    format: "json"
+    extension: "json"
+    slug: "{{slug}}"
+    fields:
+      - {label: "Nombre", name: "name", widget: "string"}
+      - {label: "Slug", name: "slug", widget: "string"}
+      - {label: "Escudo (URL)", name: "crest_url", widget: "image"}
+
+  - name: "jugadores"
+    label: "Jugadores"
+    folder: "data/jugadores"
+    create: true
+    format: "json"
+    extension: "json"
+    slug: "{{slug}}"
+    fields:
+      - {label: "Nombre", name: "name", widget: "string"}
+      - {label: "Equipo (ID)", name: "team_id", widget: "number"}
+      - {label: "Posición", name: "position", widget: "string"}
+      - {label: "Dorsal", name: "number", widget: "number"}
+
+  - name: "partidos"
+    label: "Partidos"
+    folder: "data/partidos"
+    create: true
+    format: "json"
+    extension: "json"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Fecha y hora", name: "date", widget: "datetime"}
+      - {label: "Local (ID)", name: "home_team_id", widget: "number"}
+      - {label: "Visita (ID)", name: "away_team_id", widget: "number"}
+      - {label: "Goles local", name: "home_goals", widget: "number", default: 0}
+      - {label: "Goles visita", name: "away_goals", widget: "number", default: 0}
+      - {label: "Estado", name: "status", widget: "select", options: ["SCHEDULED","FINISHED"], default: "SCHEDULED"}
+      - {label: "Estadio/Cancha", name: "venue", widget: "string", required: false}
+
+  - name: "eventos"
+    label: "Eventos (goles, tarjetas)"
+    folder: "data/eventos"
+    create: true
+    format: "json"
+    extension: "json"
+    slug: "{{slug}}"
+    fields:
+      - {label: "Partido (ID)", name: "match_id", widget: "number"}
+      - {label: "Minuto", name: "minute", widget: "number"}
+      - {label: "Tipo", name: "type", widget: "select", options: ["goal","yellow","red","sub-in","sub-out"]}
+      - {label: "Jugador (ID)", name: "player_id", widget: "number", required: false}
+      - {label: "Equipo (ID)", name: "team_id", widget: "number"}
+
+  - name: "fotos"
+    label: "Fotos"
+    folder: "uploads"
+    create: true
+    extension: "jpg"
+    slug: "{{slug}}"
+    fields:
+      - {label: "Imagen", name: "file", widget: "image"}
+      - {label: "Alt", name: "alt", widget: "string", required: false}
+      - {label: "Caption", name: "caption", widget: "string", required: false}
+
+  - name: "paginas"
+    label: "Páginas"
+    files:
+      - file: "index.html"
+        label: "Inicio (texto principal)"
+        name: "inicio"
+        fields:
+          - {label: "Título", name: "title", widget: "string", default: "Liga Amateur"}
+          - {label: "Descripción", name: "description", widget: "text", required: false}
+
+# To use GitHub backend on GitHub Pages, replace the backend block:
+# backend:
+#   name: github
+#   repo: TU_USUARIO/TU_REPO
+#   branch: main
+#   base_url: https://TU_DOMINIO_DE_OAUTH

@@ -1,0 +1,24 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SportsEvent",
+  "name": "Universitario vs Atlético Norte",
+  "sport": "Soccer",
+  "startDate": "2025-08-17T13:30:00-04:00",
+  "location": {
+    "@type": "Place",
+    "name": "Cancha Norte",
+    "address": "Chile"
+  },
+  "competitor": [
+    {
+      "@type": "SportsTeam",
+      "name": "Universitario"
+    },
+    {
+      "@type": "SportsTeam",
+      "name": "Atlético Norte"
+    }
+  ],
+  "eventStatus": "EventScheduled",
+  "url": "https://campeonatodie-commits.github.io/super-copa-ingenieria/partidos/2025-08-17-universitario-vs-atletico-norte.html"
+}

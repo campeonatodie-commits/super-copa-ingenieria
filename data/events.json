@@ -1,0 +1,58 @@
+[
+  {
+    "id": 5001,
+    "match_id": 1001,
+    "minute": 14,
+    "type": "goal",
+    "player_id": 101,
+    "team_id": 1
+  },
+  {
+    "id": 5002,
+    "match_id": 1001,
+    "minute": 65,
+    "type": "goal",
+    "player_id": 101,
+    "team_id": 1
+  },
+  {
+    "id": 5003,
+    "match_id": 1001,
+    "minute": 72,
+    "type": "goal",
+    "player_id": 102,
+    "team_id": 2
+  },
+  {
+    "id": 5004,
+    "match_id": 1003,
+    "minute": 35,
+    "type": "goal",
+    "player_id": 101,
+    "team_id": 1
+  },
+  {
+    "id": 5005,
+    "match_id": 1003,
+    "minute": 77,
+    "type": "goal",
+    "player_id": 104,
+    "team_id": 4
+  },
+  {
+    "id": 5006,
+    "match_id": 1003,
+    "minute": 82,
+    "type": "goal",
+    "player_id": 101,
+    "team_id": 1
+  },
+  {
+    "id": 5007,
+    "match_id": 1003,
+    "minute": 90,
+    "type": "goal",
+    "player_id": 101,
+    "team_id": 1
+  }
+]
